@@ -1,0 +1,56 @@
+{% extends 'site/base.html' %}
+
+{% block 'corp' %}
+<section id="consultation" class="consultation">
+    <div class="container" data-aos="fade-up">
+
+
+<div class="col-md-12">
+    <div class="widget-area-2 proclinic-box-shadow">
+        <h3 class="widget-title">liste des patients consultés </h3>
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>										
+                        <th>nom</th>
+                        <th>prenom</th>
+                        <th>telephone</th>
+                        <th>sexe</th>
+                        <th>adresse</th>
+                        <th>poids</th>
+                        <th>observation</th>
+                        <th>date</th>
+                        <th>age</th>
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                {% csrf_token %}
+                {% for i in tata %}
+                <tbody>
+                    <tr>											
+                        <td>{{ i.nom}}</td>
+                        <td>{{ i.prenom }}</td>
+                        <td>{{ i.telephone }}</td>
+                        <td>{{ i.sexe }}</td>
+                        <td>{{ i.adresse }}</td>
+                        <td>{{ i.poids }}</td>
+                        <td>{{ i.observation }}</td>
+                        <td>{{ i.date }}</td>
+                        <td>{{ i.age }}</td>
+                        <td>
+                        <button type="button" class="btn btn-outline-info mb-0"> <a href="{% url 'urlmodifierconsultation' i.id %}"> <span class="ti-arrow-down">modifier</span></a> </button>
+                        <button type="button" class="btn btn-outline-info mb-0"><a href="{% url 'urlsupprimerconsultation' i.id %}"><span class="ti-arrow-down">supprimer</span></a></button>
+                        </td>
+                        {% endfor %}
+                    </tr>
+                </tbody>
+                
+            </table>
+            <br>
+                <button type="submit" class="btn btn-primary" ><a href="{% url 'urladdconsultation' %}">Ajouter</a></button>
+
+        </div>
+    </div>
+</div>
+</section>
+{% endblock %}

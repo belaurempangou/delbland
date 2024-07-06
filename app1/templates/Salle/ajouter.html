@@ -1,0 +1,51 @@
+{% extends 'site/base.html' %}
+
+{% block 'corp' %}
+{% load static %}
+<section id="ajout" class="ajout">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Ajouter les salles</h2>
+      </div>
+
+        <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
+            <form action="" method="post" class="info-box">
+                {%csrf_token%}
+
+
+                <div class="row">
+                    <div class="col-lg-6 form-group">
+                        <input class="form-control"  type="text" name="nom" id="" required  placeholder="Entrez le nom">
+                    </div>
+                    
+                    <div class="col-lg-6 form-group">
+                        <input class="form-control"  type="int" name="numero" id=""  required  placeholder="Entrez le numero">
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-lg-6 form-group">
+                        <input class="form-control"  type="number" name="nbrepatient" id=""  required  placeholder="Entrez le nbrepatient">
+                    </div>
+                    <div class="col-lg-6 form-group">
+                        <input class="form-control"  type="date" name="date" id=""  required  placeholder="date">
+                    </div>
+                </div>
+               
+
+                
+            </form>
+
+            <br>
+            <button type="submit" class="btn btn-primary" >Entrer</button>
+
+      </div>
+      
+</div>
+
+    </div>
+
+  </section><!-- End Contact Us Section -->
+
+{% endblock %}
